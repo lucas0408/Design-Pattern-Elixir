@@ -1,0 +1,28 @@
+#Processamento de pedidos
+def processar_pedidos(pedidos) do
+    pedidos
+    |> Enum.filter(&(&1.status == :pendente))
+    |> Enum.sort_by(&(&1.data))
+    |> Enum.map(&calcular_total/1)
+    |> Enum.group_by(&(&1.cliente_id))
+end
+
+#Normalização de textos
+def normalizar_texto(texto) do
+	texto
+	|> String.downcase()
+	|> String.trim()
+	|> String.replace(~r/[^\w\s]/, "")
+	|> String.replace(~r/\s+/, " ")
+end
+
+#análise de arquivo
+def analisar_arquivo(caminho) do
+	caminho
+	|> File.read!()
+	|> String.split("\n")
+	|> Enum.reject(&(String.length(&1) == 0))
+	|> Enum.map(&parse_linha/1)
+	|> agregar_resultados()
+end
+
