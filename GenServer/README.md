@@ -1,6 +1,6 @@
 ### GenServer
 
-O **GenServer** é um dos padrões mais importantes em Elixir. Ele tem o objetivo de implementar um servidor de caráter geral que mantém o estado e pode lidar com requisições síncronas e assíncronas.
+O **GenServer** faz parte do padrão OTP (Open Telecom Platform). Ele tem o objetivo de implementar um servidor de caráter geral que mantém o estado e pode lidar com requisições síncronas e assíncronas.
 
 O **GenServer** funciona através de processos isolados que:
 
