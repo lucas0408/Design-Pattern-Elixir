@@ -1,0 +1,21 @@
+#seguindo a lista children, supervisor principal vai tentar iniciar esse módulo com a chamada: DesignPattern.Database.Supervisor.start_link([])   
+defmodule DesignPattern.DatabaseSupervisor do
+  use Supervisor
+
+  #Recebe []  
+  def start_link(init_arg) do
+    #Supervisor interno chama init/1
+    Supervisor.start_link(__MODULE__, init_arg, name: __MODULE__)
+  end
+
+  @impl true
+  def init(_init_arg) do
+    # módulos apenas demonstrativos
+    children = [
+      {DesignPattern.Database.Connection, []},
+      {DesignPattern.Database.Cache, []}
+    ]
+
+    Supervisor.init(children, strategy: :one_for_all)
+  end
+end

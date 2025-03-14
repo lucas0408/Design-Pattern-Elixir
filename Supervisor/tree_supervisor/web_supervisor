@@ -1,0 +1,19 @@
+defmodule DesignPattern.WebSupervisor do
+  use Supervisor
+
+  #Recebe []  
+  def start_link(init_arg) do
+    Supervisor.start_link(__MODULE__, init_arg, name: __MODULE__)
+  end
+
+  @impl true
+  def init(_init_arg) do
+    # módulos apenas demonstrativos
+    children = [
+      {DesignPattern.Web.Endpoint, []},
+      {DesignPattern.Web.RateLimit, []}
+    ]
+
+    Supervisor.init(children, strategy: :rest_for_one)
+  end
+end

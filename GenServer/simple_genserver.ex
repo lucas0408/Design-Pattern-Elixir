@@ -1,4 +1,4 @@
-defmodule SimpleGenserver do
+defmodule Counter do
   use GenServer
 
   # API Cliente - funções que os outros módulos chamarão
