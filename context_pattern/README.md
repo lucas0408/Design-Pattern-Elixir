@@ -17,5 +17,5 @@ Por exemplo, no projeto de e-commerce em que atuo como desenvolvedor back-end [l
 - **Encapsulamento**: Protege a lógica de negócio dentro do contexto.
 - **Reusabilidade**: Facilita o reúso da lógica de negócio em diferentes partes da aplicação.
 
-## No arquivo acima vocês podem ver o contexto de shopping_cart do e-commerce que atuo como dev
+### No arquivo shopping_cart.ex vocês podem ver o contexto de shopping_cart do e-commerce que atuo como dev
 
